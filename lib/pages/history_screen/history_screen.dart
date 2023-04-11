@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'dart:convert';
 
 import 'package:ecommerce_app/base/no_date_page.dart';
@@ -9,7 +11,7 @@ import 'package:ecommerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../constants/constants.dart';
-import '../../models/cart_model.dart';
+import '../../models/cart_model/cart_model.dart';
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
 import 'package:get/get.dart';
@@ -21,6 +23,7 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var getCartHistoryList =
         Get.find<CartController>().getCartHistoryList().reversed.toList();
+    print(getCartHistoryList.length);
     Map<String, int> cartItemsPerOrder = Map();
 
     for (int i = 0; i < getCartHistoryList.length; i++) {
@@ -40,17 +43,13 @@ class HistoryScreen extends StatelessWidget {
     }
 
     List<int> itemsPerOrder = cartOrderTimeToList();
-    Widget time(int i)
-    {
-      DateTime parseDate = DateFormat(
-          "yyyy-MM-dd hh:mm:ss")
-          .parse(getCartHistoryList[i].time!);
-      var inputDate =
-      DateTime.parse(parseDate.toString());
-      var outputFormat =
-      DateFormat('yyyy-MM-dd hh:mm a');
-      var outputDate =
-      outputFormat.format(inputDate);
+    Widget time(int i) {
+      print(i);
+      DateTime parseDate =
+          DateFormat("yyyy-MM-dd hh:mm:ss").parse(getCartHistoryList[i].time!);
+      var inputDate = DateTime.parse(parseDate.toString());
+      var outputFormat = DateFormat('yyyy-MM-dd hh:mm a');
+      var outputDate = outputFormat.format(inputDate);
       return BigText(text: '$outputDate');
     }
 
@@ -101,7 +100,7 @@ class HistoryScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                   time(i),
+                                    time(i),
                                     SizedBox(
                                       height: Dimensions.width10,
                                     ),
@@ -163,7 +162,7 @@ class HistoryScreen extends StatelessWidget {
                                               BigText(
                                                 text: itemsPerOrder[i]
                                                         .toString() +
-                                                    " Itmes",
+                                                    " Items",
                                                 color: AppColors.titleColor,
                                               ),
                                               GestureDetector(

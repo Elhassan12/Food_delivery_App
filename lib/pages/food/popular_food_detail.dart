@@ -2,7 +2,6 @@
 
 import 'package:ecommerce_app/constants/constants.dart';
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
-import 'package:ecommerce_app/controllers/popular_product_controller.dart';
 import 'package:ecommerce_app/models/product_model/product_model.dart';
 import 'package:ecommerce_app/pages/cart/cart_screen.dart';
 import 'package:ecommerce_app/route_helper/route_helper.dart';
@@ -10,6 +9,7 @@ import 'package:ecommerce_app/utils/dimensions.dart';
 import 'package:ecommerce_app/widgets/app_icon.dart';
 import 'package:ecommerce_app/widgets/expandable_text_widget.dart';
 import 'package:flutter/material.dart';
+import '../../controllers/popular_controller/popular_product_controller.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_column.dart';
 import '../../widgets/big_text.dart';

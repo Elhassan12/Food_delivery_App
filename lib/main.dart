@@ -1,6 +1,6 @@
+import 'package:ecommerce_app/auth/sign_in_page/sign_in_page.dart';
+import 'package:ecommerce_app/auth/sign_up_page/sign_up_page.dart';
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
-import 'package:ecommerce_app/controllers/popular_product_controller.dart';
-import 'package:ecommerce_app/menu_bar.dart';
 import 'package:ecommerce_app/pages/cart/cart_screen.dart';
 import 'package:ecommerce_app/pages/food/popular_food_detail.dart';
 import 'package:ecommerce_app/pages/food/recommended_food_detail.dart';
@@ -10,6 +10,7 @@ import 'package:ecommerce_app/route_helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'client_helper/dependencies.dart' as dep ;
+import 'controllers/popular_controller/popular_product_controller.dart';
 import 'controllers/recommended_controller/recommended_controller.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,9 +33,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      // home:NewPage(),
-      initialRoute:RouteHelper.getSplashScreen(),
-      getPages: RouteHelper.routes,
+      home:SignInPage(),
+      // initialRoute:RouteHelper.getSplashScreen(),
+      // getPages: RouteHelper.routes,
     );
   }
 }

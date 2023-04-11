@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-//  height is 840 ti get the factor
+//  height is 840 to get the factor
 
 class Dimensions{
   //Dimensions of the device screen
@@ -16,6 +16,7 @@ class Dimensions{
   static double height10 = screenHeight/84.4;
   static double height15 = screenHeight/56.27;
   static double height20 = screenHeight/42.2;
+  static double height25 = screenHeight/33.6;
   static double height30 = screenHeight/28.13;
   static double height45 = screenHeight/18.76;
 

@@ -36,7 +36,8 @@ class RouteHelper {
       name: popularFood, page: (){
       var pageId = Get.parameters['pageId'];
       var page =Get.parameters['page'];
-       return PopularFoodDetail(pageId: int.parse(pageId!),page:page.toString());},
+       return PopularFoodDetail(pageId: int.parse(pageId!),page:page.toString());
+       },
     transition: Transition.fadeIn,
     ),
 

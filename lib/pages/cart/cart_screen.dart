@@ -4,7 +4,6 @@ import 'package:badges/badges.dart';
 import 'package:ecommerce_app/base/no_date_page.dart';
 import 'package:ecommerce_app/constants/constants.dart';
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
-import 'package:ecommerce_app/controllers/popular_product_controller.dart';
 import 'package:ecommerce_app/route_helper/route_helper.dart';
 import 'package:ecommerce_app/utils/colors.dart';
 import 'package:ecommerce_app/utils/dimensions.dart';
@@ -14,8 +13,9 @@ import 'package:ecommerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/popular_controller/popular_product_controller.dart';
 import '../../controllers/recommended_controller/recommended_controller.dart';
-import '../../models/cart_model.dart';
+import '../../models/cart_model/cart_model.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);

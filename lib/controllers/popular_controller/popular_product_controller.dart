@@ -1,12 +1,12 @@
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
 import 'package:ecommerce_app/data/repository/popular_product_repo.dart';
-import 'package:ecommerce_app/models/cart_model.dart';
+import 'package:ecommerce_app/models/cart_model/cart_model.dart';
 import 'package:ecommerce_app/utils/colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../models/product_model/product_model.dart';
+import '../../models/product_model/product_model.dart';
 
 class PopularProductController extends GetxController
 {
@@ -25,18 +25,17 @@ class PopularProductController extends GetxController
   Response response = await popularProductRepo.getPopularProductList();
   if(response.statusCode==200)
     {
-      print('got popular food ');
       _popularProductList =[];
       _popularProductList.addAll(ProductModel.fromJson(response.body).products!);
 
-       print("id "+_popularProductList[0].id.toString()+ "name " +_popularProductList[0].name.toString());
+       // print("id "+_popularProductList[0].id.toString()+ "name " +_popularProductList[0].name.toString());
       _isLoaded=true;
       update();
     }else
       {
         if (kDebugMode) {
           print(response.statusCode.toString());
-          print('error happened');
+          print('error happened in popular product controller');
           print(response.statusText.toString());
         }
       }
