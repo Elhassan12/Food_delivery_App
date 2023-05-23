@@ -4,6 +4,7 @@ import 'package:ecommerce_app/auth/sign_in_page/sign_in_page.dart';
 import 'package:ecommerce_app/base/custom_message.dart';
 import 'package:ecommerce_app/controllers/auth_controller/auth_controller.dart';
 import 'package:ecommerce_app/models/sign_up_model/sign_up_model.dart';
+import 'package:ecommerce_app/route_helper/route_helper.dart';
 import 'package:ecommerce_app/utils/colors.dart';
 import 'package:ecommerce_app/utils/dimensions.dart';
 import 'package:ecommerce_app/widgets/app_text_field.dart';
@@ -21,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
   var nameController = TextEditingController();
   var phoneController = TextEditingController();
 
-  bool _registration(AuthController authController) {
+ void _registration(AuthController authController) {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     String name = nameController.text.trim();
@@ -29,33 +30,35 @@ class SignUpScreen extends StatelessWidget {
 
     if (!GetUtils.isEmail(email)) {
       customMessage("Type a valid email", "Email", Status.FAILD);
-      return false;
+
     } else if (password.isEmpty) {
       customMessage("Type your password", "Password", Status.FAILD);
-      return false;
+
     } else if (password.length <= 6) {
       customMessage(
           "Password must be more than 6 digits", "Password", Status.FAILD);
-      return false;
+
     } else if (name.isEmpty) {
       customMessage("Type your name", "Name", Status.FAILD);
-      return false;
+
     } else if (phone.isEmpty) {
       customMessage("Type your phone", "Phone", Status.FAILD);
-      return false;
-    } else {
+
+    } else{
+
       customMessage("Signed up successfully", "Prefect", Status.SUCCESS);
       SignUpBody signUpBody = new SignUpBody(
           email: email, password: password, name: name, phone: phone);
       authController.registration(signUpBody).then((status){
-        if(status.isSuccess){
-          print('success registration');
-        }else{
-          customMessage(status.message, "Registration failed", Status.FAILD);
-        }
+        // if(status.isSuccess){
+        //   print('success registration');
+        // }else{
+        //   customMessage(status.message, "Registration failed", Status.FAILD);
+        // }
+        Get.offNamed(RouteHelper.initial);
+
       });
 
-      return true;
     }
   }
 
@@ -135,10 +138,7 @@ class SignUpScreen extends StatelessWidget {
                       )),
                 ),
                 onTap: () {
-                  if (_registration(_authController)) {
-                    Get.to(SignInPage());
-                    print("Sign up");
-                  }
+                  _registration(_authController);
                 },
               ),
               SizedBox(

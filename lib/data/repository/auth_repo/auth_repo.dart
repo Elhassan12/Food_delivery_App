@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/constants/constants.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,6 +37,24 @@ class AuthRepo{
      throw e;
    }
   }
+
+  bool isUserLoggedIn(){
+   return sharedPreferences.containsKey(Constant.TOKEN);
+  }
+
+
+  Future<String> getUserToken() async{
+ return await sharedPreferences.getString(Constant.TOKEN)??"";
+ }
+
+ bool clearSharedPreferencesData(){
+   sharedPreferences.remove(Constant.TOKEN);
+   sharedPreferences.remove(Constant.EMAIL);
+   sharedPreferences.remove(Constant.PASSWORD);
+   apiClient.token = '';
+   apiClient.updateHeaders('');
+   return true;
+ }
 
 
 }

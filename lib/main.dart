@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/auth/sign_in_page/sign_in_page.dart';
 import 'package:ecommerce_app/auth/sign_up_page/sign_up_page.dart';
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
+import 'package:ecommerce_app/pages/add_address_page.dart';
 import 'package:ecommerce_app/pages/cart/cart_screen.dart';
 import 'package:ecommerce_app/pages/food/popular_food_detail.dart';
 import 'package:ecommerce_app/pages/food/recommended_food_detail.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home:SignInPage(),
+      home:AddAddressPage(),
       // initialRoute:RouteHelper.getSplashScreen(),
       // getPages: RouteHelper.routes,
     );

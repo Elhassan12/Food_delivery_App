@@ -74,4 +74,11 @@ class CartRepo{
   });
   return historyList ;
   }
+
+  void clearCartHistory(){
+    removeCart();
+    cartHistory =[];
+    sharedPreferences.remove(Constant.CART_HISTORY_LIST);
+
+  }
 }

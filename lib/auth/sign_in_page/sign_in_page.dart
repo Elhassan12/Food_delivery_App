@@ -8,7 +8,6 @@ import 'package:ecommerce_app/widgets/custom_loader.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../base/custom_message.dart';
 import '../../controllers/auth_controller/auth_controller.dart';
 
@@ -36,14 +35,18 @@ class SignInPage extends StatelessWidget {
             "Password must be more than 6 digits", "Password", Status.FAILD);
         return false;
       }  else {
-        authController.login(email, password).then((status){
-          if(status.isSuccess){
-           Get.toNamed(RouteHelper.getInitial());
+        customMessage(
+            "Sign In Successfully ", "Welcome", Status.FAILD);
+        Get.toNamed(RouteHelper.initial);
+        // authController.login(email, password).then((status){
+        //   if(status.isSuccess){
+        //    Get.toNamed(RouteHelper.getInitial());
+        //
+        //   }else{
+        //     customMessage(status.message, "Sign in failed", Status.FAILD);
+        //   }
+        // });
 
-          }else{
-            customMessage(status.message, "Sign in failed", Status.FAILD);
-          }
-        });
         return true;
       }
     }

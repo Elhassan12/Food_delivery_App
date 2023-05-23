@@ -4,6 +4,7 @@ import 'package:badges/badges.dart';
 import 'package:ecommerce_app/base/no_date_page.dart';
 import 'package:ecommerce_app/constants/constants.dart';
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
+import 'package:ecommerce_app/controllers/location_controller/location_controller.dart';
 import 'package:ecommerce_app/route_helper/route_helper.dart';
 import 'package:ecommerce_app/utils/colors.dart';
 import 'package:ecommerce_app/utils/dimensions.dart';
@@ -11,8 +12,10 @@ import 'package:ecommerce_app/widgets/app_icon.dart';
 import 'package:ecommerce_app/widgets/big_text.dart';
 import 'package:ecommerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/auth_controller/auth_controller.dart';
 import '../../controllers/popular_controller/popular_product_controller.dart';
 import '../../controllers/recommended_controller/recommended_controller.dart';
 import '../../models/cart_model/cart_model.dart';
@@ -310,7 +313,17 @@ class CartScreen extends StatelessWidget {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      cartController.addToCartHistoryList();
+
+                      if(Get.find<AuthController>().isUserLoggedIn()){
+                       if(Get.find<LocationController>().addressList.isEmpty){
+                         Get.toNamed(RouteHelper.getAddressPage());
+                         cartController.addToCartHistoryList();
+                       }
+                      }else{
+                        // Get.toNamed(RouteHelper.getSignInScreen());
+                        print("you must Sign in first");
+                      }
+                      // cartController.addToCartHistoryList();
                     },
                     child: BigText(
                       text: ' | Add to Cart ',
