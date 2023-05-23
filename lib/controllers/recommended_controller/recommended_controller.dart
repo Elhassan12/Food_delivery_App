@@ -1,8 +1,7 @@
 import 'package:ecommerce_app/controllers/cart_controller/cart_controller.dart';
-import 'package:ecommerce_app/controllers/popular_product_controller.dart';
 import 'package:ecommerce_app/data/repository/popular_product_repo.dart';
 import 'package:ecommerce_app/data/repository/recommended_repo/recommended_repo.dart';
-import 'package:ecommerce_app/models/cart_model.dart';
+import 'package:ecommerce_app/models/cart_model/cart_model.dart';
 import 'package:ecommerce_app/utils/colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

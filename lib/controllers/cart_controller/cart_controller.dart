@@ -1,7 +1,8 @@
 import 'dart:core';
 
+import 'package:ecommerce_app/constants/constants.dart';
 import 'package:ecommerce_app/data/repository/cart_repo/cart_repo.dart';
-import 'package:ecommerce_app/models/cart_model.dart';
+import 'package:ecommerce_app/models/cart_model/cart_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -141,7 +142,10 @@ class CartController extends GetxController {
     });
     return total;
   }
+
   List<CartModel> storageItems=[];
+
+
   set setCart(List<CartModel> items)
   {
     storageItems=items;
@@ -178,6 +182,10 @@ class CartController extends GetxController {
  {
    cartRepo.addToCartList(getItems);
    update();
+ }
+ void clearCartHistory(){
+    cartRepo.clearCartHistory();
+    update();
  }
 
 

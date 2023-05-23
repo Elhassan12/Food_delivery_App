@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/cart_controller/cart_controller.dart';
-import '../../controllers/popular_product_controller.dart';
+import '../../controllers/popular_controller/popular_product_controller.dart';
 import '../../widgets/app_icon.dart';
 import 'package:badges/badges.dart';
 

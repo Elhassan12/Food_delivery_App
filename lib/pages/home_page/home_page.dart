@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/auth/sign_up_page/sign_up_page.dart';
+import 'package:ecommerce_app/pages/account/account_page.dart';
 import 'package:ecommerce_app/pages/history_screen/history_screen.dart';
 import 'package:ecommerce_app/pages/home_page/main_food_page.dart';
 import 'package:ecommerce_app/utils/colors.dart';
@@ -62,9 +64,9 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _buildScreens() {
     return [
       MainFoodPage(),
-      Container(child: Center(child: Text('Scecond Page')),),
+     SignUpScreen(),
       HistoryScreen(),
-      Container(child: Center(child: Text('Fourth Page')),),
+      Account(),
     ];
   }
   List<PersistentBottomNavBarItem> _navBarsItems() {

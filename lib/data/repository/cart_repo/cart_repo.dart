@@ -4,7 +4,7 @@ import 'package:ecommerce_app/constants/constants.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../models/cart_model.dart';
+import '../../../models/cart_model/cart_model.dart';
 
 class CartRepo{
   final SharedPreferences sharedPreferences;
@@ -73,5 +73,12 @@ class CartRepo{
     historyList.add(CartModel.formJson(jsonDecode(element)));
   });
   return historyList ;
+  }
+
+  void clearCartHistory(){
+    removeCart();
+    cartHistory =[];
+    sharedPreferences.remove(Constant.CART_HISTORY_LIST);
+
   }
 }

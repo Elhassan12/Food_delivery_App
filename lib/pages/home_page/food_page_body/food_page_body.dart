@@ -2,7 +2,6 @@
 
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce_app/constants/constants.dart';
-import 'package:ecommerce_app/controllers/popular_product_controller.dart';
 import 'package:ecommerce_app/controllers/recommended_controller/recommended_controller.dart';
 import 'package:ecommerce_app/models/product_model/product_model.dart';
 import 'package:ecommerce_app/route_helper/route_helper.dart';
@@ -14,6 +13,8 @@ import 'package:ecommerce_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:get/get.dart';
+
+import '../../../controllers/popular_controller/popular_product_controller.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -174,7 +175,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                         iconColor: AppColors.iconColor2),
                                   ],
                                 ),
-
                               ],
                             ),
                           ),
@@ -223,9 +223,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     } else {
       // to fix the translation in right widget
       var currScale = 0.8;
-      var currtrans = _height * (1 - currScale) / 2;
+      var currTrans = _height * (1 - currScale) / 2;
       martix = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, currtrans, 0);
+        ..setTranslationRaw(0, currTrans, 0);
     }
 
     return Transform(

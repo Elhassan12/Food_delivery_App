@@ -4,7 +4,6 @@ import 'package:ecommerce_app/utils/dimensions.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-import '../../controllers/popular_product_controller.dart';
 import '../../controllers/recommended_controller/recommended_controller.dart';
 
 class SplashScreen extends StatefulWidget {
