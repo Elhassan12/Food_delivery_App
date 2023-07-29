@@ -1,16 +1,15 @@
 # ecommerce_app
 
-A new Flutter project.
+major features :
+1. Show products based on category (Done)
+2. Shopping cart (Done)
+3. Place your order (Done)
+4. Track order (In progress)
+5. User profile (Done)
+6. Sign in & Sign up (Done)
+7. User address location from Google Map (Almost Done)
+8. Zone based order  (In progress)
+9. User Authentication (Done)
+10. Firebase notification  (In progress)
+11. Payment (Paypal)  (In progress)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
